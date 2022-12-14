@@ -366,10 +366,10 @@ FROM EMPLOYEE;
     최종 조회된 결과물들에 대해서 정렬 기준을 세워주는 구문
     
     [표현법]
-    SELECT 칼럼명1, 칼럼명2, ...
-    FROM 테이블명
-    WHERE 조건식(생략 가능)
-    ORDER BY [정렬 기준으로 세우고자 하는 칼럼명/ 별칭/ 칼럼 순번] [ASC(오름차순)/DESC(내림차순)] (생략 가능) [NULLS FIRST/NULLS LAST] (생략 가능)
+    3SELECT 칼럼명1, 칼럼명2, ...
+    1FROM 테이블명
+    2WHERE 조건식(생략 가능)
+    4ORDER BY [정렬 기준으로 세우고자 하는 칼럼명/ 별칭/ 칼럼 순번] [ASC(오름차순)/DESC(내림차순)] (생략 가능) [NULLS FIRST/NULLS LAST] (생략 가능)
 */
 
 -- 월급이 높은 사람들부터 나열
