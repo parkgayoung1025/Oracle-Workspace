@@ -451,7 +451,7 @@ SELECT TO_DATE('091129 143050', 'YYMMDD HH24:MI:SS')
 FROM DUAL;
 
 SELECT TO_DATE('220806', 'YYMMDD')
-FROM DUAL; -- 2022년도
+FROM DUAL; -- 2022년도 22-08-06
 
 SELECT TO_DATE('980806', 'YYMMDD')
 FROM DUAL; -- 2098년도
@@ -540,6 +540,10 @@ FROM DUAL;
 -- 사번, 사원명, 주민번호, 주민번호로부터 성별을 추출하여 1이면 남, 2면 여
 SELECT EMP_ID, EMP_NAME, EMP_NO, DECODE(SUBSTR(EMP_NO, 8, 1), 1 , '남', 2, '여') 성별
 FROM EMPLOYEE;
+
+SELECT EMP_ID, EMP_NAME, EMP_NO, DECODE(SUBSTR(EMP_NO, 8, 1), 1 , '남', 2, '여', NULL) 성별
+FROM EMPLOYEE;
+-- DEFAULT 값으로 NULL 들어가 있음
 
 -- 각 직원들의 급여를 인상 시켜서 조회
 -- 직급 코드가 'J7'인 사원은 급여를 20% 인상해서 조회
@@ -666,7 +670,8 @@ FROM EMPLOYEE;
 -- 나이는 현재 연도 - 태어난 연도
 SELECT EMP_NAME 직원명, 
        DEPT_CODE 부서코드, -- SUBSTR(EMP_NO, 1, 6) -> 문자열
-       TO_CHAR(TO_DATE(SUBSTR(EMP_NO, 1, 6)), 'YY"년" MM"월" DD"일"') 생년월일,
+       TO_CHAR(TO_DATE(SUBSTR(EMP_NO, 1, 6)), 'YY"년" MM"월" DD"일"') 생년월일, -- XX년 XX월 XX일 
+       --TO_CHAR(TO_DATE(SUBSTR(EMP_NO, 1, 6)), 'FMYY"년" MM"월" DD"일"') XX년X월X일
     -- SUBSTR(EMP_NO, 1, 2) || '년' || SUBSTR(EMP_NO, 3, 2) || '월' || SUBSTR(EMP_NO, 5, 2) || '일'
        EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM TO_DATE(SUBSTR(EMP_NO, 1, 6))) 나이
                                  -- EXTRACT(YEAR FROM TO_DATE(SUBSTR(EMP_NO, 1, 2), 'RRRR')) 
