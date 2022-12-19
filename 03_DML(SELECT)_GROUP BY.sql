@@ -136,3 +136,33 @@ UNION
 SELECT EMP_ID, EMP_NAME, DEPT_CODE, JOB_CODE
 FROM EMPLOYEE
 WHERE DEPT_CODE = 'D1';
+
+-- 2. UNION ALL : 여러 개의 쿼리 결과를 더해서 보여주는 연산자(중복 제거 안 함)
+-- 직급 코드가 J6이거나 부서 코드가 D1인 사원들을 조회(사번, 사원명, 부서 코드, 직급 코드)
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, JOB_CODE
+FROM EMPLOYEE
+WHERE JOB_CODE = 'J6'
+UNION ALL
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, JOB_CODE
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D1';
+
+-- 3. INTERSECT : 교집합, 여러 쿼리 결과의 중복된 결과만 조회 => AND
+-- 직급 코드가 J6이거나 부서 코드가 D1인 사원들을 조회(사번, 사원명, 부서 코드, 직급 코드)
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, JOB_CODE
+FROM EMPLOYEE
+WHERE JOB_CODE = 'J6'
+INTERSECT
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, JOB_CODE
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D1';
+
+-- 4. MINUS : 차집합, 선행 쿼리 결과에서 후행 쿼리 결과를 뺀 나머지
+-- 직급 코드가 J6이거나 부서 코드가 D1인 사원들을 조회(사번, 사원명, 부서 코드, 직급 코드)
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, JOB_CODE
+FROM EMPLOYEE
+WHERE JOB_CODE = 'J6' -- 전형돈, 장쯔위, 하동운, 차태연, 전지연, 이태림
+MINUS -- 전형돈, 장쯔위, 하동운, 이태림
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, JOB_CODE
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D1'; -- 방명수, 차태연, 전지연
