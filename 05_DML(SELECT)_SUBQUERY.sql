@@ -347,7 +347,7 @@ WHERE ROWNUM <= 5;
     DENSE_RANK() OVER(정렬 기준)
     
     - RANK() OVER(정렬 기준) : 공동 1위가 3명이라고 한다면 그다음 순위는 4위로
-    - DENSE_RANK() OVER(정렬기 준) : 공동 1위가 3명이면 그다음 순위는 2위로
+    - DENSE_RANK() OVER(정렬 기준) : 공동 1위가 3명이면 그다음 순위는 2위로
     
     정렬 기준 : ORDER BY 절(정렬 기준 칼럼 이름, 오름차순/내림차순), NULLFIRST나 NULLSLAST는 기술 불가
     
