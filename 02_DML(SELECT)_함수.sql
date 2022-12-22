@@ -422,6 +422,7 @@ FROM DUAL;
 
 SELECT TO_CHAR(SYSDATE, 'YYYY"년" MM"월" DD"일" (DY)')
 FROM DUAL;
+-- 'FMYY"년" MM"월" DD"일"' -> XX년X월X일
 
 -- 2010년 이후에 입사한 사원들의 사원명, 입사일 포맷은 위의 형식대로
 SELECT EMP_NAME, TO_CHAR(HIRE_DATE, 'YYYY"년" MM"월" DD"일" (DY)')
