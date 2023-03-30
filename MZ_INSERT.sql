@@ -28,10 +28,20 @@ INSERT INTO MEMBER( USER_ID,
                 'NIC_fri');
 INSERT INTO MEMBER( USER_ID,
                     USER_PWD,
-                    NICKNAME )
+                    NICKNAME)
         VALUES ( 'admin',
                 'admin',
                 'admin');
+INSERT INTO MEMBER( USER_ID,
+                    USER_PWD,
+                    NICKNAME,
+                    SELF_INFO,
+                    GENDER)
+        VALUES ( 'user1',
+                'user1',
+                'user1',
+                '안녕하세요 푸하항 포항항',
+                'W');
       
 -- BOARD
 
